@@ -1,0 +1,38 @@
+html {
+  background-color: #eee;
+  text-align: center;
+  display: grid;
+  place-content: center;
+}
+
+button {
+  border-radius: 999px;
+  width: 150px;
+  height: 25px;
+  border: 2px solid rgb(59, 59, 59);
+  background-color: rgb(59, 59, 59);
+  color: white;
+  transition: background-color 0.3s ease;
+  transition: color 0.3s ease;
+}
+button:hover {
+  background-color: white;
+  color: rgb(59, 59, 59);
+  cursor: pointer;
+}
+
+input {
+  margin-bottom: 10px;
+  border-radius: 5px;
+  width: 250px;
+  height: 20px;
+  border: solid rgb(59, 59, 59) 2px;
+  background-color: rgb(59, 59, 59);
+  color: white;
+  transition: border-color 0.3s ease;
+  transition: background-color 0.3s ease;
+}
+input:hover, input:focus {
+  background-color: white;
+  color: rgb(59, 59, 59);
+}
