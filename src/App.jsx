@@ -1,17 +1,27 @@
 import React, { useState, useEffect } from 'react';
 
 export const App = () => {
-  const [inputValue, setInputValue] = useState('')
+  const [inputNameValue, setNameInputValue] = useState('')
+  const [inputPriceValue, setPriceInputValue] = useState(0)
+  const [theCheck, setCheck] = useState(0)
   const [items, setItems] = useState([])
 
-  const handleInputChange = (e) => {
-    setInputValue(e.target.value)
+  const handleNameInputChange = (e) => {
+    setNameInputValue(e.target.value)
+  }
+  const handlePriceInputChange = (e) => {
+    setPriceInputValue(e.target.value)
   }
 
   const handleButtonClick = () => {
-    setItems([...items, inputValue]); 
+    const newItemPrice = Number(inputPriceValue);
 
-    setInputValue('')
+    setItems([...items, { name: inputNameValue, price: newItemPrice }]);
+
+    setCheck((theCheck) => theCheck + newItemPrice);
+
+    setNameInputValue('');
+    setPriceInputValue(0);
   }
 
   const deleteItem = (e) => {
@@ -27,14 +37,25 @@ export const App = () => {
       {items.map((item, index) => (
         <div key={index}>
           <p>
-            - {item} -
+            - {item.name} -
           </p>
-          <button onClick={deleteItem}>Bought!</button>
+          <p>
+            {item.price}$
+          </p>
+          <button onClick={deleteItem}>In the cart!</button>
         </div>
       ))}
-      <input type="text" value={inputValue} onChange={handleInputChange}/>
+      <p>Name:</p>
+      <input type="text" value={inputNameValue} onChange={handleNameInputChange}/>
+      <p>Price:</p>
+      <input type="number" value={inputPriceValue} onChange={handlePriceInputChange}/>
       <br />
       <button onClick={handleButtonClick}>Add to the cart</button>
+
+      <div className='check'>
+        <p>The check:</p>
+        <p>- {theCheck}$ -</p>
+      </div>
     </>
   )
 }

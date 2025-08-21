@@ -38,3 +38,18 @@ input:hover, input:focus {
   background-color: white;
   color: rgb(59, 59, 59);
 }
+
+.check {
+  padding: 5px;
+  background-color: rgb(59, 59, 59);
+  border: solid rgb(59, 59, 59) 2px;
+  border-radius: 8px;
+  color: #eee;
+  transition: background-color 0.3s ease;
+  transition: color 0.3s ease;
+}
+
+.check:hover {
+  background-color: #eee;
+  color: rgb(59, 59, 59);
+}
